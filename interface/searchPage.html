@@ -1,0 +1,30 @@
+<! File: searchPage.html>
+<! Used to initiate the search from client side>
+<! Created for the project WebCrawlerText>
+
+<html>
+	<head>
+        <title>Search Page</title>
+	</head>
+
+	<body>
+	<center>
+        <br/><br/><br/><br/>
+        <h1><b>Search Interface</b></h1>
+        <br/><br/><br/><br/>
+		<form name="inputForm" id="inputForm" action="dbConnect.php" method="POST"> <! Sends the form data to dbConnect.php>
+                        <p>
+                                <br/>
+				<input type="text" name="word" id="word" size="50" value="Enter Search term" />
+				<br/><br/>
+				<select name="boolean" id="boolean" size="2">
+					<option value="AND">AND </option>
+                                        <option value="OR">OR </option>
+				</select>
+                                <br/><br/>
+				<input type="submit" value="Search">
+			</p>
+	</center>
+        </form>
+	</body>
+</html>
