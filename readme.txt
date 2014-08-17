@@ -4,7 +4,7 @@ Contact: chetansingh954@gmail.com
 Platform: Python 2
 
 This project is disributed under Creative Commons License Attribution-NonCommercial-ShareAlike 3.0. The legal code is
-provided in the main directory as legalCode.txt.
+provided in the main directory as license.txt.
 
 ##Released as free software.
 ##Further details about the license and usage rights can be viewed in creative commons website.
