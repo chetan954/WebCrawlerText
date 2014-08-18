@@ -88,6 +88,11 @@ This script checks weather the index of database is up to date or not.
 ##This script uses lastModified.py as a library. So a copy of lastModified.py is kept in this folder.
 
 
+<4>. The compiled library files of the scripts imported in the webCrawler.py are kept in 'compiledLibs' folder.
+
+##Although the compiled libraries are made when you excecute the program, the files are still made available.
+
+
 NOTE: 1. This project is made under standard python compiler for python ver. 2.7.
 2. This project is intended as a personal project for the author. Any kind of mistakes on the part of author are
 not subjeced to any warranties or claim to that matter.
