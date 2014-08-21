@@ -35,7 +35,7 @@ def linksData(lnkLst,url):
     while i<len(lnkLst):
         sql = "INSERT INTO linksList(sourceLink, \
                linkName, dataLink, date) \
-               VALUES ('%s', '%s', '%s', '%s')"
+               VALUES (%s, %s, %s, %s)"
         cursor.execute(sql,(url,lnkLst[i][0],lnkLst[i][1],lnkLst[i][2]))
         i+=1
     db.commit()
@@ -46,7 +46,7 @@ def metatagData(lst,url):
     while i<len(lst):
         sql = "INSERT INTO metaData(sourceLink, \
                keyword) \
-               VALUES ('%s' , '%s')"
+               VALUES (%s, %s)"
         cursor.execute(sql,(url,lst[i]))
         i+=1
     db.commit()
@@ -57,7 +57,7 @@ def keyword(lst,url):
     while i<len(lst):
         sql = "INSERT INTO keywords(sourceLink, \
                keyword) \
-               VALUES ('%s','%s')"         
+               VALUES (%s, %s)"         
         cursor.execute(sql,(url,lst[i]))
         i+=1
     db.commit()
@@ -74,19 +74,18 @@ def pageContent(url):#EXTRACTS HTML CODE
 
 def perPage(url):#ADD SOMETHING TO CHECK WEATHER URL VALID OR NOT
     print 'page'
-    page = pageContent(url)
+    page = pageContent(url)#GETS PAGE CONTENT
 
-    page = rem.rmvTag(page) 
+    page = rem.rmvTag(page)#REMOVES TAGS
 
     metaLst = meta.metaContent(page, url)
-    print metaLst
-#    metatagData(metaLst,url)
+    metatagData(metaLst, url)#GETS META DATA AND INSERTS IN DATABASE
 
     lnkLst = links.linksExt(page, url)
-    print lnkLst
+    linksData(lnkLst, url)#GETS LINKS AND INSERTS IN DATABASE
 
     filPg = tag.filterContent(page, url)
-    print filPg
+    keyword(filPg, url)#GETS KEYWORDS AND INSERTS IN DATABASE
 
     print '\n---------------------------------------------------------'
     return lnkLst
